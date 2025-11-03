@@ -11,8 +11,6 @@ import org.star5025.bigevent.utils.Md5Util;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private UserService userService;
 
     @Override
     public User findByUserName(String username) {

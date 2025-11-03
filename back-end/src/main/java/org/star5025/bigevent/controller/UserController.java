@@ -1,6 +1,8 @@
 package org.star5025.bigevent.controller;
 
+import jakarta.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +10,7 @@ import org.star5025.bigevent.pojo.Result;
 import org.star5025.bigevent.pojo.User;
 import org.star5025.bigevent.service.UserService;
 
+@Validated
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -16,7 +19,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public Result register(String username, String password) {
+    public Result register(@Pattern(regexp = "^$\\S{5,16}$")String username, @Pattern(regexp = "^$\\S{5,16}$")String password) {
         //查询用户，未查到就注册
         User user = userService.findByUserName(username);
         if (user == null) {
@@ -28,6 +31,5 @@ public class UserController {
             //用户被占用
             return Result.error("用户名已被占用");
         }
-        //注册
     }
 }
