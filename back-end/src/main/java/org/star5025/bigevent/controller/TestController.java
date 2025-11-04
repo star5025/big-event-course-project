@@ -3,16 +3,13 @@ package org.star5025.bigevent.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.star5025.bigevent.pojo.Result;
-
-import java.util.Map;
 
 @RestController
-@RequestMapping("/article")
-public class ArticleController {
+@RequestMapping("/test")
+public class TestController {
 
-    @GetMapping("/list")
-    public Result<String> list() {
-        return Result.success();
+    @GetMapping("/fuck")
+    public String test() {
+        return "Fuck";
     }
 }

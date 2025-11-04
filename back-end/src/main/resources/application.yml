@@ -8,3 +8,10 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启后驼峰命名和下划线命名会自动转换
+
+knife4j:
+  enable: true
