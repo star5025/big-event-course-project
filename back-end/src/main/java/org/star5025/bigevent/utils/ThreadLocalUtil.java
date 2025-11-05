@@ -1,8 +1,5 @@
 package org.star5025.bigevent.utils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * ThreadLocal 工具类
  */

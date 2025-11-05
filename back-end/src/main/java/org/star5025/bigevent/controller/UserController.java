@@ -2,7 +2,6 @@ package org.star5025.bigevent.controller;
 
 //import com.github.xiaoymin.knife4j.annotations.ApiOperationSort;
 import jakarta.validation.constraints.Pattern;
-import org.apache.ibatis.ognl.ASTProject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -10,22 +9,22 @@ import org.star5025.bigevent.pojo.Result;
 import org.star5025.bigevent.pojo.User;
 import org.star5025.bigevent.service.UserService;
 import org.star5025.bigevent.utils.JwtUtil;
-import org.star5025.bigevent.utils.Md5Util;
 import org.star5025.bigevent.utils.ThreadLocalUtil;
+import org.star5025.bigevent.utils.Md5Util;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Validated
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/register")
-    public Result register(@Pattern(regexp = "^$\\S{5,16}$")String username, @Pattern(regexp = "^$\\S{5,16}$")String password) {
+    public Result register(@Pattern(regexp = "^\\S{5,16}$")String username, @Pattern(regexp = "^\\S{5,16}$")String password) {
         //查询用户，未查到就注册
         User user = userService.findByUserName(username);
         if (user == null) {
@@ -40,7 +39,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Result<String> login(@Pattern(regexp = "^$\\S{5,16}$")String username, @Pattern(regexp = "^$\\S{5,16}$")String password) {
+    public Result<String> login(@Pattern(regexp = "^\\S{5,16}$")String username, @Pattern(regexp = "^\\S{5,16}$")String password) {
         //根据用户名查询用户
         User loginUser = userService.findByUserName(username);
         //判断用户是否存在

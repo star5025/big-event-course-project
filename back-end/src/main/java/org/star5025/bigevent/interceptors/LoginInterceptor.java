@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.star5025.bigevent.pojo.Result;
 import org.star5025.bigevent.utils.JwtUtil;
 import org.star5025.bigevent.utils.ThreadLocalUtil;
 
