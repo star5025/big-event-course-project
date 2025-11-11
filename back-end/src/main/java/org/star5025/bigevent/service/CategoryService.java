@@ -13,4 +13,7 @@ public interface CategoryService {
 
     //新增分类
     void add(Category category);
+
+    //根据ID查询分类信息
+    Category findById(Integer id);
 }
