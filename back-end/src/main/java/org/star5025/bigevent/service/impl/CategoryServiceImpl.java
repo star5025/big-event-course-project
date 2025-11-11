@@ -8,6 +8,7 @@ import org.star5025.bigevent.service.CategoryService;
 import org.star5025.bigevent.utils.ThreadLocalUtil;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -15,6 +16,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private CategoryMapper categoryMapper;
+
+    @Override
+    public List<Category> list() {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer userId = (Integer) map.get("id");
+        return categoryMapper.list(userId);
+    }
 
     @Override
     public void add(Category category) {
